@@ -8,5 +8,5 @@ This code was designed to be an improvement to a similar analysis code written i
 Refer to the SOP in the respository for detailed instructions to operate the code.
 > Author Contact: duongxt@student.ubc.ca
 
-## Usage of Generative AI Statement
+## Use of Generative AI
 This code was developed with the help of GenAI (ChatGPT). GenAI was only used to assist with writing in Python. View [UBC's Principles on Generative AI](https://genai.ubc.ca/guidance/principles/).
