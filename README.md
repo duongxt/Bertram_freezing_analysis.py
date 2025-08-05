@@ -9,4 +9,4 @@ Refer to the SOP in the respository for detailed instructions to operate the cod
 > Author Contact: duongxt@student.ubc.ca
 
 ## Usage of Generative AI Statement
-This code was written with the help of GenAI (ChatGPT). GenAi was used only to write code in Python. All ideas and analysis procedures are the intellectual property of members of the Bertram Research Group. View [UBC's Principles on Generative AI](https://genai.ubc.ca/guidance/principles/).
+This code was developed with the help of GenAI (ChatGPT). GenAI was only used to assist with writing in Python. View [UBC's Principles on Generative AI](https://genai.ubc.ca/guidance/principles/).
