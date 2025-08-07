@@ -2,7 +2,7 @@
 Detection of droplet freezing temperatures for ice nucleation research. Made for the Bertram Lab at UBC.
 
 ## Purpose
-This code was designed to be an improvement to a similar analysis code written in MatLab by previous members of the Bertram Lab, allowing for allowing better accessibility and usability. this alternative Python code was created. This Python analysis code is user-friendly, faster, and provides accurate freezing temperatures for droplet freezing techniques.
+This code was designed to be an improvement to a similar analysis code written in MatLab by previous members of the Bertram Lab, allowing for allowing better accessibility and usability. This Python analysis code is user-friendly, faster, and provides accurate freezing temperatures for droplet freezing techniques.
 
 ## How To
 Refer to the SOP in the respository for detailed instructions to operate the code.
