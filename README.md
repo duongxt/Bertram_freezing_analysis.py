@@ -42,12 +42,12 @@ The there are up to 6 input prompts for each sample. Fill them as necessary and 
 6. Enter number of skipped seconds
 > Enter the number of seconds in the video until the first freezing event. To ensure code doesn't miss the first droplet, leave ~5s between Skip Seconds and the first freezing event.
 
-**Repeat the above steps for every subfolder in the big folder**
+Repeat the above steps for every subfolder in the big folder
 
 ### Viewing the Results
-When the code is finished running, it will download an Excel file int he big folder. Open this file to find the analysed data, sorted by freezing temperature and plate.
+When the code is finished running, it will download an Excel file in the big folder. Open this file to find the analysed data, sorted by freezing temperature and plate.
 
-**Make sure the Excel file is <ins>closed</ins> when re-running the code for any reason**
+Make sure the Excel file is <ins>closed</ins> when re-running the code for any reason
 
 ### Common Errors
 Recorded in the SOP.
