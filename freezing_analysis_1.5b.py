@@ -243,6 +243,7 @@ for folder_name in os.listdir(base_dir): # cycle throug every subfolder in the s
     # prompt user for time parameters
     video_start_str = input("\nEnter video start time (HH:MM:SS, 24h format): ")
     file_start_str = input("Enter file (TSV) start time (HH:MM:SS, 24h format): ")
+    end_cut = int(input("Enter duration of video analysis (HH:MM:SS, 24h format):"))
     skip_seconds = int(input("Enter number of skipped seconds: "))
 
     print("Processing video...")
@@ -250,6 +251,8 @@ for folder_name in os.listdir(base_dir): # cycle throug every subfolder in the s
     video_start_time = datetime.strptime(video_start_str, "%H:%M:%S")
     file_start_time = datetime.strptime(file_start_str, "%H:%M:%S")
     time_diff_sec = int((video_start_time - file_start_time).total_seconds())
+    analysis_length = datetime.strptime(end_cut, "%H:%M:%S")
+    sec_end = int(analysis_length.total_seconds())
 
     # prepare datafile for recording data
     df = pd.read_csv(tsv_path, sep='\t', skiprows=12, header=None, usecols=[0, 2], names=["Elapsed", "Temperature"])
@@ -276,19 +279,24 @@ for folder_name in os.listdir(base_dir): # cycle throug every subfolder in the s
             if frame_idx % (1 + FRAME_SKIP) != 0:  # only analyse specified frames
                 frame_idx += 1
                 continue
-        
-            frame = frame[:, x1:x2]
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        
-            sec_idx = frame_idx / fps + skip_seconds        
-        
-            for i, (cx, cy, r) in enumerate(droplets):
-                mask = np.zeros_like(gray, dtype=np.uint8)
-                cv2.circle(mask, (cx, cy), r, 255, -1)
-                mean_val = cv2.mean(gray, mask=mask)[0]
-                droplet_brightness[i + 1].append((sec_idx, mean_val))
-        
-            frame_idx += 1
+                
+            if frame_idx <= sec_end * fps: 
+                frame = frame[:, x1:x2]
+                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            
+                sec_idx = frame_idx / fps + skip_seconds        
+            
+                for i, (cx, cy, r) in enumerate(droplets):
+                    mask = np.zeros_like(gray, dtype=np.uint8)
+                    cv2.circle(mask, (cx, cy), r, 255, -1)
+                    mean_val = cv2.mean(gray, mask=mask)[0]
+                    droplet_brightness[i + 1].append((sec_idx, mean_val))
+            
+                frame_idx += 1
+                
+            else:
+                frame_idx += 1
+                continue
 
         cap.release()
     
@@ -302,18 +310,23 @@ for folder_name in os.listdir(base_dir): # cycle throug every subfolder in the s
                 frame_idx += 1
                 continue
         
-            frame = frame[:, x1:x2]
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        
-            sec_idx = frame_idx / fps + skip_seconds     
-        
-            for i, (cx, cy, r) in enumerate(droplets):
-                mask = np.zeros_like(gray, dtype=np.uint8)
-                cv2.circle(mask, (cx, cy), r, 255, -1)
-                mean_val = cv2.mean(gray, mask=mask)[0]
-                droplet_brightness[i + 1].append((sec_idx, mean_val))
-        
-            frame_idx += 1
+            if frame_idx <= sec_end * fps: 
+                frame = frame[:, x1:x2]
+                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            
+                sec_idx = frame_idx / fps + skip_seconds        
+            
+                for i, (cx, cy, r) in enumerate(droplets):
+                    mask = np.zeros_like(gray, dtype=np.uint8)
+                    cv2.circle(mask, (cx, cy), r, 255, -1)
+                    mean_val = cv2.mean(gray, mask=mask)[0]
+                    droplet_brightness[i + 1].append((sec_idx, mean_val))
+            
+                frame_idx += 1
+                
+            else:
+                frame_idx += 1
+                continue
 
         cap.release()
 
@@ -426,4 +439,5 @@ if all_results_by_folder:
     print(f"\nSaved: {excel_filename}")
 else:
     print("No nitric acid results found across all folders.")
+
 
