@@ -11,6 +11,9 @@ This code was developed with the help of GenAI (ChatGPT). GenAI was only used to
 ## How To
 These instructions are for Windows with Anaconda installed. More detailed instructions can be found in the SOP (.docx file) in the repository.
 
+## 1.5 vs. 1.5b
+1.5 is the standard freezing analysis code which detects only one freezing event. 1.5b is designed for nitric acid freezing and records two freezing events.
+
 ### Installing Required Libraries
 In Anaconda's CMD.exe prompt, paste in the following line:
 > “pip install opencv-python numpy pandas matplotlib scipy openpyxl”
