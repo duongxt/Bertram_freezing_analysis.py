@@ -325,7 +325,7 @@ for folder_name in os.listdir(base_dir): # cycle throug every subfolder in the s
         times, brightness = zip(*droplet_brightness[droplet_id])
         times = np.array(times)
         brightness = np.array(brightness)
-        deriv = np.diff(brightness) * fps # convert brightness deriv to 1/s
+        deriv = np.diff(brightness) * fps * (1 + FRAME_SKIP) # convert brightness deriv to 1/s
         peaks, _ = find_peaks(deriv, prominence=BRIGHTNESS_PEAK_PROMINENCE) # returns frame num of deriv peaks
 
         if len(peaks) < 1 or np.max(deriv[peaks]) < BRIGHTNESS_PEAK_PROMINENCE:
@@ -384,4 +384,5 @@ if all_results_by_folder:
     print(f"\nSaved: {excel_filename}")
 else:
     print("No results found across all folders.")
+
 
