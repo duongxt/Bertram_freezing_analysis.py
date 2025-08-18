@@ -6,6 +6,7 @@ Created on Tue Jul  8 15:54:20 2025
 email: duongxt@student.ubc.ca
 
 Last updated: Jul 26, 2025
+Note: This code is outdated. Use 1.5, instead.
 """
 # import required libraries
 import os
@@ -341,4 +342,5 @@ if all_results_by_folder:
     print(f"\nSaved: {excel_filename}")
 else:
     print("No results found across all folders.")
+
 
