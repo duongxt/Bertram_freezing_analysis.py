@@ -19,7 +19,7 @@ In Anaconda's CMD.exe prompt, paste in the following line:
 There are three parameters at the top of the code: BRIGHTNESS_PEAK_PROMINENCE, MIN_RADIUS, and BINARY_THRESHOLD. Adjust these parameters based on the camera setup, lighting, and clarity of the freezing events.
 > BRIGHTNESS_PEAK_PROMINENCE should ideally not need adjusting\
 > Adjust MIN_RADIUS to the according to the droplet size if the code is having difficulties detecting them\
-> Adjust BINARY_THRESHOLD according to the video brightness if the code is having difficulty detecting droplets
+> Increase FRAME_SKIP if the video file is very long and frame-perfect precision is not required
 
 ### Setting Up the Folder
 Copy the relevant TSV and video file of each sample into a named subfolder. Organise all the subfolders into one big folder with the code inside the big folder.
