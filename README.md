@@ -32,7 +32,7 @@ Copy the relevant TSV and video file of each sample into a named subfolder. Orga
 ### Running the Code
 Open the code in Spyder. Make sure the .py file selected is the __same file in the big folder__, and not for another sample. Run the Python code.
 
-The there are up to 6 input prompts for each sample. Fill them as necessary and press "Enter" (note: inputs cannot be changed after pressing enter). The prompts are:
+The there are up to 7 input prompts for each sample. Fill them as necessary and press "Enter" (note: inputs cannot be changed after pressing enter). The prompts are:
 1. Analyze folder '{folder_name}'? (Y/N)
 > Entering "Y" or "y" will continue the analysis for that folder, while entering anything else skips the folder
 2. Enter number of plates
@@ -43,7 +43,9 @@ The there are up to 6 input prompts for each sample. Fill them as necessary and 
 > Enter the video birth time in HH:MM:SS
 5. Enter file (TSV) start time (HH:MM:SS, 24h format)
 > Enter the TSV file birth time in HH:MM:SS
-6. Enter number of skipped seconds
+6. Enter duration of video analysis
+> Enter the length of the video you want to analyse (1.5b only, useful to cut ends off long videos)
+7. Enter number of skipped seconds
 > Enter the number of seconds in the video until the first freezing event. To ensure code doesn't miss the first droplet, leave ~5s between Skip Seconds and the first freezing event.
 
 Repeat the above steps for every subfolder in the big folder
