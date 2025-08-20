@@ -284,7 +284,7 @@ for folder_name in os.listdir(base_dir): # cycle throug every subfolder in the s
                 frame = frame[:, x1:x2]
                 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             
-                sec_idx = frame_idx / fps + skip_seconds    
+                sec_idx = frame_idx / fps   
             
                 for i, (cx, cy, r) in enumerate(droplets):
                     mask = np.zeros_like(gray, dtype=np.uint8)
@@ -314,7 +314,7 @@ for folder_name in os.listdir(base_dir): # cycle throug every subfolder in the s
                 frame = frame[:, x1:x2]
                 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             
-                sec_idx = frame_idx / fps + skip_seconds        
+                sec_idx = frame_idx / fps        
             
                 for i, (cx, cy, r) in enumerate(droplets):
                     mask = np.zeros_like(gray, dtype=np.uint8)
@@ -439,6 +439,7 @@ if all_results_by_folder:
     print(f"\nSaved: {excel_filename}")
 else:
     print("No nitric acid results found across all folders.")
+
 
 
 
