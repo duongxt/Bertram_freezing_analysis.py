@@ -279,7 +279,7 @@ for folder_name in os.listdir(base_dir): # cycle throug every subfolder in the s
             frame = frame[:, x1:x2]
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         
-            sec_idx = frame_idx / fps + skip_seconds        
+            sec_idx = frame_idx / fps + skip_seconds + time_diff_sec        
         
             for i, (cx, cy, r) in enumerate(droplets):
                 mask = np.zeros_like(gray, dtype=np.uint8)
@@ -304,7 +304,7 @@ for folder_name in os.listdir(base_dir): # cycle throug every subfolder in the s
             frame = frame[:, x1:x2]
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         
-            sec_idx = frame_idx / fps + skip_seconds     
+            sec_idx = frame_idx / fps + skip_seconds + time_diff_sec     
         
             for i, (cx, cy, r) in enumerate(droplets):
                 mask = np.zeros_like(gray, dtype=np.uint8)
@@ -336,7 +336,7 @@ for folder_name in os.listdir(base_dir): # cycle throug every subfolder in the s
             max_peak_frame = peaks[max_peak_idx]
             peak_sec = times[max_peak_frame] # time of highest peak
             temp = temp_at_time(df, round(peak_sec), video_start_time)
-            peak_info.append((droplet_id, peak_sec + time_diff_sec, temp))
+            peak_info.append((droplet_id, peak_sec, temp))
 
         # plot data onto brightness derivative graph
         plt.plot(times[:-1], deriv, label = f"Droplet {droplet_id}")
@@ -384,5 +384,6 @@ if all_results_by_folder:
     print(f"\nSaved: {excel_filename}")
 else:
     print("No results found across all folders.")
+
 
 
