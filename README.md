@@ -1,6 +1,6 @@
 # Bertram_freezing_analysis.py
 Detection of droplet freezing temperatures for ice nucleation research. Made for the Bertram Lab at UBC.
-> Author Contact: duongxt@student.ubc.ca\
+> Author Contact: duongxt@student.ubc.ca
 
 Last Updated: March 17, 2026\
 Current Version: 1.5
